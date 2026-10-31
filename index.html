@@ -1,0 +1,339 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THE MIRROR AI — Discover Yourself</title>
+<style>
+:root {
+  --bg:#090b12;
+  --panel:#121622;
+  --text:#f2f1f7;
+  --muted:#a5a8b8;
+  --accent:#b8a1ff;
+  --line:#292e40;
+}
+* { box-sizing:border-box; }
+body {
+  margin:0;
+  background:radial-gradient(ellipse at 50% 0%,#25203c 0%,var(--bg) 48%);
+  color:var(--text);
+  font-family:Arial, sans-serif;
+  min-height:100vh;
+}
+header {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:24px 7%;
+  border-bottom:1px solid #ffffff12;
+}
+.logo { letter-spacing:3px; font-size:14px; font-weight:bold; }
+.logo span { color:var(--accent); }
+nav a { color:var(--muted); text-decoration:none; font-size:13px; }
+main { max-width:850px; margin:auto; padding:75px 22px; }
+.eyebrow {
+  color:var(--accent); letter-spacing:4px;
+  font-size:11px; text-align:center;
+}
+h1 {
+  text-align:center; font-size:clamp(42px,8vw,76px);
+  line-height:1.05; margin:22px 0;
+  letter-spacing:-3px;
+}
+h1 span { color:var(--accent); }
+.intro {
+  color:var(--muted); text-align:center;
+  max-width:570px; line-height:1.8;
+  margin:0 auto 35px;
+}
+.button {
+  display:inline-block; background:var(--accent);
+  color:#100d1c; border:0; border-radius:7px;
+  padding:15px 24px; font-weight:bold;
+  cursor:pointer; text-decoration:none;
+}
+.center { text-align:center; }
+.section { margin-top:90px; }
+.section h2 { font-size:30px; text-align:center; }
+.section > p {
+  color:var(--muted); text-align:center;
+  line-height:1.7;
+}
+.panel {
+  background:var(--panel); border:1px solid var(--line);
+  border-radius:16px; padding:28px; margin-top:30px;
+}
+.question { margin-bottom:27px; }
+.question label {
+  display:block; margin-bottom:12px;
+  font-weight:bold; line-height:1.5;
+}
+select, textarea {
+  width:100%; background:#0b0e17;
+  color:var(--text); border:1px solid var(--line);
+  padding:14px; border-radius:8px;
+  font-size:15px;
+}
+textarea { min-height:110px; resize:vertical; }
+select:focus, textarea:focus {
+  outline:1px solid var(--accent);
+}
+.panel .button { width:100%; margin-top:10px; }
+#result {
+  display:none; margin-top:30px;
+  border:1px solid #66558e;
+  background:#19162a; border-radius:14px;
+  padding:25px; line-height:1.8;
+}
+#result h3 { color:var(--accent); }
+.result-label {
+  color:var(--accent); font-size:11px;
+  letter-spacing:2px; margin-top:22px;
+}
+footer {
+  text-align:center; color:#777d91;
+  border-top:1px solid #ffffff12;
+  padding:30px 15px; font-size:12px;
+  line-height:1.8;
+}
+.small { color:var(--muted); font-size:12px; line-height:1.7; }
+@media(max-width:600px) {
+  header { padding:20px; }
+  main { padding-top:55px; }
+  .panel { padding:20px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">THE <span>MIRROR</span> AI</div>
+  <nav><a href="#readme">READ ME</a></nav>
+</header>
+
+<main>
+  <div class="eyebrow">A JOURNEY INWARD</div>
+  <h1>How well do you<br><span>know yourself?</span></h1>
+  <p class="intro">
+    You know the person you show the world.
+    But what about the thoughts, desires, patterns
+    and possibilities you rarely stop to explore?
+    It's time to take a closer look.
+  </p>
+  <div class="center">
+    <a class="button" href="#readme">MEET YOURSELF</a>
+  </div>
+
+  <section class="section" id="readme">
+    <div class="eyebrow">YOUR FIRST REFLECTION</div>
+    <h2>READ ME.</h2>
+    <p>
+      There are no perfect answers. Choose what feels
+      closest to your experience.
+    </p>
+
+    <div class="panel">
+      <form id="mirrorForm">
+
+        <div class="question">
+          <label for="q1">1. When life becomes overwhelming, what do you usually do?</label>
+          <select id="q1" required>
+            <option value="">Choose your answer</option>
+            <option value="reflect">I isolate and think things through.</option>
+            <option value="connect">I talk to someone I trust.</option>
+            <option value="escape">I distract myself with music or entertainment.</option>
+            <option value="act">I confront the problem immediately.</option>
+            <option value="vary">It depends on the situation.</option>
+          </select>
+        </div>
+
+        <div class="question">
+          <label for="q2">2. Which environment makes you feel most like yourself?</label>
+          <select id="q2" required>
+            <option value="">Choose your answer</option>
+            <option value="quiet">A peaceful, quiet place.</option>
+            <option value="social">A lively place full of people.</option>
+            <option value="creative">An artistic or creative environment.</option>
+            <option value="adventure">Somewhere new and unfamiliar.</option>
+            <option value="trusted">Somewhere with people I trust.</option>
+          </select>
+        </div>
+
+        <div class="question">
+          <label for="q3">3. What matters most to you in other people?</label>
+          <select id="q3" required>
+            <option value="">Choose your answer</option>
+            <option value="loyalty">Honesty and loyalty.</option>
+            <option value="understanding">Emotional understanding.</option>
+            <option value="curiosity">Intelligence and curiosity.</option>
+            <option value="humour">Humour and positive energy.</option>
+            <option value="respect">Respect and independence.</option>
+          </select>
+        </div>
+
+        <div class="question">
+          <label for="q4">4. Which statement feels closest to your mindset?</label>
+          <select id="q4" required>
+            <option value="">Choose your answer</option>
+            <option value="deep">I think deeply about life.</option>
+            <option value="present">I prefer living in the moment.</option>
+            <option value="dreamer">I imagine what could be possible.</option>
+            <option value="analytical">I like understanding how things work.</option>
+            <option value="searching">I am still figuring myself out.</option>
+          </select>
+        </div>
+
+        <div class="question">
+          <label for="q5">5. What kind of music speaks to you most?</label>
+          <select id="q5" required>
+            <option value="">Choose your answer</option>
+            <option value="melodic">Melodic and emotional music.</option>
+            <option value="lyrics">Deep lyrics and storytelling.</option>
+            <option value="energy">Energetic music.</option>
+            <option value="instrumental">Instrumental and atmospheric music.</option>
+            <option value="variety">A little bit of everything.</option>
+          </select>
+        </div>
+
+        <div class="question">
+          <label for="q6">6. What would you most like to experience?</label>
+          <select id="q6" required>
+            <option value="">Choose your answer</option>
+            <option value="conversation">A meaningful conversation.</option>
+            <option value="adventure">A spontaneous adventure.</option>
+            <option value="love">A peaceful moment with someone I love.</option>
+            <option value="creation">Creating something original.</option>
+            <option value="achievement">Achieving something I once thought impossible.</option>
+          </select>
+        </div>
+
+        <div class="question">
+          <label for="extra">7. What is something you wish people understood about you?</label>
+          <textarea id="extra" placeholder="Write whatever comes naturally. You can leave this blank."></textarea>
+        </div>
+
+        <button class="button" type="submit">REVEAL MY REFLECTION</button>
+      </form>
+
+      <div id="result" aria-live="polite">
+        <div class="eyebrow">YOUR MIRROR</div>
+        <h3 id="resultTitle">A first reflection</h3>
+        <p id="resultText"></p>
+        <div class="result-label">SOMETHING TO CONSIDER</div>
+        <p id="resultQuestion"></p>
+        <p class="small">
+          This is an introductory reflection based only on the answers
+          you selected. It is not a psychological assessment or a
+          definitive description of who you are.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="eyebrow">THE IDEA</div>
+    <h2>More than a personality test.</h2>
+    <p>
+      THE MIRROR AI is being built to explore the person
+      behind the everyday answers: your ambitions, values,
+      interests, emotional world and the patterns you may overlook.
+    </p>
+  </section>
+</main>
+
+<footer>
+  THE MIRROR AI · DISCOVER YOURSELF BEYOND WHAT YOU KNOW.<br>
+  Your answers stay in this browser in this starter version.
+  Nothing is sent to a server.
+</footer>
+
+<script>
+const form = document.getElementById("mirrorForm");
+
+form.addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const answers = {
+    q1: document.getElementById("q1").value,
+    q2: document.getElementById("q2").value,
+    q3: document.getElementById("q3").value,
+    q4: document.getElementById("q4").value,
+    q5: document.getElementById("q5").value,
+    q6: document.getElementById("q6").value
+  };
+
+  const reflections = {
+    q1: {
+      reflect: "You selected reflection as your response to pressure. Taking time alone may help you process experiences before responding.",
+      connect: "You selected connection as your response to pressure. Support and conversation may be important ways you work through difficult moments.",
+      escape: "You selected distraction as your response to pressure. Music or entertainment may give you space to pause when things feel heavy.",
+      act: "You selected action as your response to pressure. Facing a problem directly may help you regain a sense of control.",
+      vary: "You selected a flexible response to pressure. Your approach may change depending on what a situation demands."
+    },
+    q2: {
+      quiet: "You chose quiet surroundings. Space, calm and time to yourself may help you feel comfortable.",
+      social: "You chose lively surroundings. Shared energy and activity may be part of what makes you feel alive.",
+      creative: "You chose creative surroundings. Making, imagining or expressing ideas may be important to your sense of self.",
+      adventure: "You chose unfamiliar surroundings. Discovery and new experiences may appeal to you.",
+      trusted: "You chose the company of trusted people. Feeling accepted and comfortable may matter more than being surrounded by many people."
+    },
+    q3: {
+      loyalty: "Honesty and loyalty stood out in your answer. Trust may be an important foundation in your relationships.",
+      understanding: "You chose emotional understanding. Being heard and understood may matter deeply to you.",
+      curiosity: "You chose intelligence and curiosity. You may value people who make you think and explore new ideas.",
+      humour: "You chose humour and positive energy. Shared laughter and lightness may be important to your connections.",
+      respect: "You chose respect and independence. You may value relationships where people allow each other room to be themselves."
+    },
+    q4: {
+      deep: "You describe yourself as someone who thinks deeply. Reflection and meaning may occupy an important place in your life.",
+      present: "You prefer living in the moment. Being present may be one way you make sense of life.",
+      dreamer: "You imagine possibilities. Your hopes and ideas about what could happen may influence your choices.",
+      analytical: "You like understanding how things work. Curiosity and making sense of things may be central to your thinking.",
+      searching: "You are still figuring yourself out. That is not a flaw; self-understanding can be an ongoing process."
+    },
+    q5: {
+      melodic: "You chose melodic and emotional music. You may enjoy music that creates a feeling or atmosphere.",
+      lyrics: "You chose storytelling and deep lyrics. Meaning and the words behind a song may be especially important to you.",
+      energy: "You chose energetic music. Rhythm and movement may be part of how you change or lift your mood.",
+      instrumental: "You chose instrumental music. Sound, atmosphere and emotion without words may appeal to you.",
+      variety: "You chose variety. Your musical interests may change with your mood or situation."
+    },
+    q6: {
+      conversation: "You chose meaningful conversation. Genuine connection and being able to speak openly may be important to you.",
+      adventure: "You chose spontaneous adventure. New experiences and freedom may be things you want more of.",
+      love: "You chose a peaceful moment with someone you love. Affection, safety and closeness may matter to you.",
+      creation: "You chose creating something original. Expression and bringing your ideas into the world may be meaningful to you.",
+      achievement: "You chose an ambitious goal. Progress and proving to yourself what you can accomplish may motivate you."
+    }
+  };
+
+  const selected = Object.keys(answers).map(key =>
+    reflections[key][answers[key]]
+  );
+
+  const extra = document.getElementById("extra").value.trim();
+
+  let report = selected.join(" ");
+
+  if (extra) {
+    report += " You also wrote: “" + extra + "”. That personal detail deserves more exploration; one answer alone is not enough to interpret it.";
+  }
+
+  document.getElementById("resultTitle").textContent =
+    "Your answers offer a starting point.";
+
+  document.getElementById("resultText").textContent = report;
+
+  document.getElementById("resultQuestion").textContent =
+    "Which of these reflections feels most accurate to you, and which one misses the mark? Your disagreement is just as useful as your agreement.";
+
+  const result = document.getElementById("result");
+  result.style.display = "block";
+  result.scrollIntoView({ behavior:"smooth", block:"start" });
+});
+</script>
+
+</body>
+</html>
